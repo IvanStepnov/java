@@ -2,7 +2,7 @@ name: Demo Work
 on: workflow_dispatch
 jobs:
   print:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted]
     steps:
       - name: Print to console
         run: echo Hello GH Action!
