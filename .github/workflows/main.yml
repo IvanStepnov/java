@@ -4,11 +4,6 @@ jobs:
   print:
     runs-on: [self-hosted]
     steps:
-      - name: Smena papki
-        run: |
-          pwd
-          cd /home/ivan/github/java
-          pwd
       - name: Git pull
         run: |
           pwd
