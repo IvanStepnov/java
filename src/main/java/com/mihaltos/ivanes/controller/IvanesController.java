@@ -17,6 +17,6 @@ public class IvanesController {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         String formattedDate = dtf.format(now);
-        return "Ivanes Web Service. V.2. Time: " + formattedDate + " - " + word;
+        return "Ivanes Web Service. V.3. Time: " + formattedDate + " - " + word;
     }
 }
