@@ -8,9 +8,21 @@ jobs:
         run: |
           pwd
           git pull
-  Docker_stop:
+  Gradle:
     runs-on: [self-hosted]
     needs: Git_pull
+    steps:
+      - name: Gradle
+        run: ./gradlew build
+  Docker_build:
+    runs-on: [self-hosted]
+    needs: Gradle
+    steps:
+      - name: Docker_build
+        run: docker build -t java-jar .
+  Docker_stop:
+    runs-on: [self-hosted]
+    needs: Docker_build
     steps:
       - name: Docker_stop
         run: |
@@ -20,7 +32,7 @@ jobs:
     runs-on: [self-hosted]
     needs: Docker_stop
     steps:
-      - name: Docker_stop
+      - name: Docker_start
         run: |
           docker run -d --rm -p 8080:8080 --name java-jar java-jar:latest
           docker ps
