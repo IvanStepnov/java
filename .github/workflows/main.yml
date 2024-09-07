@@ -14,9 +14,15 @@ jobs:
     steps:
       - name: Gradle
         run: ./gradlew build
-  Docker_stop:
+  Docker_build:
     runs-on: [self-hosted]
     needs: Gradle
+    steps:
+      - name: Docker_build
+        run: docker build -t java-jar .
+  Docker_stop:
+    runs-on: [self-hosted]
+    needs: Docker_build
     steps:
       - name: Docker_stop
         run: |
