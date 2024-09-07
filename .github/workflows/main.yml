@@ -1,11 +1,29 @@
 name: Demo Work
 on: workflow_dispatch
 jobs:
-  print:
+  Git_pull:
     runs-on: [self-hosted]
     steps:
       - name: Git pull
         run: |
           pwd
           git pull
+  Docker_stop:
+    runs-on: [self-hosted]
+    needs: Git_pull
+    steps:
+      - name: Docker_stop
+        run: |
+          docker stop java-jar
+          docker ps
+  Docker_start:
+    runs-on: [self-hosted]
+    needs: Docker_stop
+    steps:
+      - name: Docker_stop
+        run: |
+          docker run -d --rm -p 8080:8080 --name java-jar java-jar:latest
+          docker ps
+  
+    
           
