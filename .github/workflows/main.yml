@@ -1,5 +1,5 @@
 name: Demo Work
-on: workflow_dispatch
+on: push
 jobs:
   Git_pull:
     runs-on: [self-hosted]
