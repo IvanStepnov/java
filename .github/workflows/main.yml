@@ -6,3 +6,7 @@ jobs:
     steps:
       - name: Print to console
         run: echo Hello GH Action!
+      - name: Print a few lines
+        run: |
+          pwd
+          ls -la
