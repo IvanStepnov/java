@@ -4,9 +4,13 @@ jobs:
   print:
     runs-on: [self-hosted]
     steps:
-      - name: Print to console
-        run: echo Hello GH Action!
-      - name: Print a few lines
+      - name: Smena papki
         run: |
           pwd
-          ls -la
+          cd /home/ivan/github/java
+          pwd
+      - name: Git pull
+        run: |
+          pwd
+          git pull
+          
